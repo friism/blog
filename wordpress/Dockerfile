@@ -1,4 +1,4 @@
-FROM php:fpm-alpine3.7
+FROM php:fpm-alpine3.7 as base
 
 RUN set -ex; \
 	\
@@ -45,18 +45,14 @@ RUN set -ex; \
 	rm wordpress.tar.gz; \
 	chown -R www-data:www-data /var/www/html
 
-RUN { \ 
-	echo '<IfModule mod_rewrite.c>'; \
-	echo 'RewriteEngine On'; \
-	echo 'RewriteBase /'; \
-	echo 'RewriteRule ^index\.php$ - [L]'; \
-	echo 'RewriteCond %{REQUEST_FILENAME} !-f'; \
-	echo 'RewriteCond %{REQUEST_FILENAME} !-d'; \
-	echo 'RewriteRule . /index.php [L]'; \
-	echo '</IfModule>'; \
-	} > .htaccess
-RUN chown www-data:www-data .htaccess
+COPY init.sh /admin/init.sh
+RUN chmod u+x /admin/init.sh
+
+FROM base as dev
 
 VOLUME [ "/var/www/html" ]
 
-CMD ["php-fpm"]
+FROM base as prod
+
+COPY wp-bootstrap-starter-child /var/www/html/wp-content/themes/
+VOLUME [ "/var/www/html" ]

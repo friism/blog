@@ -1,8 +1,10 @@
-version: "3"
+version: "3.4"
 
 services:
   blog:
-    build: wordpress
+    build:
+      context: wordpress
+      target: dev
     volumes:
       - blog-www-html:/var/www/html
       - ./wordpress/wp-bootstrap-starter-child:/var/www/html/wp-content/themes/wp-bootstrap-starter-child

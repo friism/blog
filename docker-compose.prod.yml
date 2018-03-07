@@ -1,0 +1,34 @@
+version: "3.4"
+
+services:
+  blog:
+    build:
+      context: wordpress
+      target: prod
+    volumes:
+      - blog-www-html-new:/var/www/html
+    depends_on:
+      - db
+  nginx:
+    build: nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - blog
+    volumes:
+      - blog-www-html-new:/var/www/html
+  db:
+    image: mariadb
+    environment:
+      - MYSQL_RANDOM_ROOT_PASSWORD=yes
+      - MYSQL_USER=wordpress
+      - MYSQL_PASSWORD=Passw0rd
+      - MYSQL_DATABASE=db
+    volumes:
+      - blog-db-data-new:/var/lib/mysql
+
+volumes:
+  blog-www-html-new:
+    external: true
+  blog-db-data-new:
+    external: true
