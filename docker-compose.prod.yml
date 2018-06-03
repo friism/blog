@@ -6,7 +6,7 @@ services:
       context: wordpress
       target: prod
     volumes:
-      - blog-www-html-new:/var/www/html
+      - blog-www-html:/var/www/html
     depends_on:
       - db
   nginx:
@@ -16,7 +16,7 @@ services:
     depends_on:
       - blog
     volumes:
-      - blog-www-html-new:/var/www/html
+      - blog-www-html:/var/www/html
   db:
     image: mariadb
     environment:
@@ -25,10 +25,10 @@ services:
       - MYSQL_PASSWORD=Passw0rd
       - MYSQL_DATABASE=db
     volumes:
-      - blog-db-data-new:/var/lib/mysql
+      - blog-db-data:/var/lib/mysql
 
 volumes:
-  blog-www-html-new:
+  blog-www-html:
     external: true
-  blog-db-data-new:
+  blog-db-data:
     external: true
