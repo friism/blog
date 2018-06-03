@@ -45,6 +45,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 		gpg \
 		gpg-agent \
 		pwgen \
+		tzdata \
 	&& rm -rf /var/lib/apt/lists/*
 
 RUN apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xF1656F24C74CD1D8 \
