@@ -34,8 +34,8 @@ RUN { \
 RUN curl -o /usr/local/bin/wp -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && \
 	chmod +x /usr/local/bin/wp
 
-ENV WORDPRESS_VERSION 4.9.4
-ENV WORDPRESS_SHA1 0e630bf940fd586b10e099cd9195b3e825fb194c
+ENV WORDPRESS_VERSION 4.9.6
+ENV WORDPRESS_SHA1 40616b40d120c97205e5852c03096115c2fca537
 
 RUN set -ex; \
 	curl -o wordpress.tar.gz -fSL "https://wordpress.org/wordpress-${WORDPRESS_VERSION}.tar.gz"; \
