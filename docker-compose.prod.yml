@@ -20,7 +20,8 @@ services:
     volumes:
       - blog-www-html:/var/www/html
   db:
-    image: mariadb
+    build:
+      context: mariadb
     environment:
       - MYSQL_RANDOM_ROOT_PASSWORD=yes
       - MYSQL_USER=wordpress
