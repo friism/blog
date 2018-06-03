@@ -51,16 +51,7 @@ ENV GPG_KEYS \
 # Key fingerprint = 177F 4010 FE56 CA33 3630  0305 F165 6F24 C74C D1D8
 # MariaDB Package Signing Key <package-signing-key@mariadb.org>
 	177F4010FE56CA3336300305F1656F24C74CD1D8 \
-# pub   1024D/CD2EFD2A 2009-12-15
-#       Key fingerprint = 430B DF5C 56E7 C94E 848E  E60C 1C4C BDCD CD2E FD2A
-# uid                  Percona MySQL Development Team <mysql-dev@percona.com>
-# sub   2048g/2D607DAF 2009-12-15
-	430BDF5C56E7C94E848EE60C1C4CBDCDCD2EFD2A \
-# pub   4096R/8507EFA5 2016-06-30
-#       Key fingerprint = 4D1B B29D 63D9 8E42 2B21  13B1 9334 A25F 8507 EFA5
-# uid                  Percona MySQL Development Team (Packaging key) <mysql-dev@percona.com>
-# sub   4096R/4CAC6D72 2016-06-30
-	4D1BB29D63D98E422B2113B19334A25F8507EFA5
+
 RUN set -ex; \
 	export GNUPGHOME="$(mktemp -d)"; \
 	for key in $GPG_KEYS; do \
@@ -69,14 +60,6 @@ RUN set -ex; \
 	gpg --export $GPG_KEYS > /etc/apt/trusted.gpg.d/mariadb.gpg; \
 	rm -r "$GNUPGHOME"; \
 	apt-key list
-
-# add Percona's repo for xtrabackup (which is useful for Galera)
-RUN echo "deb https://repo.percona.com/apt bionic main" > /etc/apt/sources.list.d/percona.list \
-	&& { \
-		echo 'Package: *'; \
-		echo 'Pin: release o=Percona Development Team'; \
-		echo 'Pin-Priority: 998'; \
-	} > /etc/apt/preferences.d/percona
 
 ENV MARIADB_MAJOR 10.3
 ENV MARIADB_VERSION 1:10.3.7+maria~bionic
@@ -99,10 +82,6 @@ RUN { \
 	&& apt-get update \
 	&& apt-get install -y \
 		"mariadb-server=$MARIADB_VERSION" \
-# percona-xtrabackup is installed at the same time so that `mysql-common` is only installed once from just mariadb repos
-		percona-xtrabackup-24 \
-		socat \
-	&& rm -rf /var/lib/apt/lists/* \
 # comment out any "user" entires in the MySQL config ("docker-entrypoint.sh" or "--user" will handle user switching)
 	&& sed -ri 's/^user\s/#&/' /etc/mysql/my.cnf /etc/mysql/conf.d/* \
 # purge and re-create /var/lib/mysql with appropriate ownership
