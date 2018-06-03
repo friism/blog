@@ -54,5 +54,5 @@ VOLUME [ "/var/www/html" ]
 
 FROM base as prod
 
-COPY wp-bootstrap-starter-child /var/www/html/wp-content/themes/
+COPY wp-bootstrap-starter-child /var/www/html/wp-content/themes/wp-bootstrap-starter-child
 VOLUME [ "/var/www/html" ]
