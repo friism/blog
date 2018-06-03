@@ -5,6 +5,8 @@ services:
     build:
       context: wordpress
       target: prod
+    environment:
+      - WP_ADMIN_PASSWORD=${WP_ADMIN_PASSWORD}
     volumes:
       - blog-www-html:/var/www/html
     depends_on:
@@ -22,7 +24,7 @@ services:
     environment:
       - MYSQL_RANDOM_ROOT_PASSWORD=yes
       - MYSQL_USER=wordpress
-      - MYSQL_PASSWORD=Passw0rd
+      - MYSQL_PASSWORD=${DB_PASS}
       - MYSQL_DATABASE=db
     volumes:
       - blog-db-data:/var/lib/mysql
