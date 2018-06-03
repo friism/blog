@@ -11,6 +11,7 @@ services:
       - blog-www-html:/var/www/html
     depends_on:
       - db
+    restart: always
   nginx:
     build: nginx
     ports:
@@ -19,6 +20,7 @@ services:
       - blog
     volumes:
       - blog-www-html:/var/www/html
+    restart: always
   db:
     build:
       context: mariadb
@@ -29,6 +31,7 @@ services:
       - MYSQL_DATABASE=db
     volumes:
       - blog-db-data:/var/lib/mysql
+    restart: always
 
 volumes:
   blog-www-html:
