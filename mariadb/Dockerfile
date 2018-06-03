@@ -10,6 +10,9 @@ RUN set -ex; \
 	\
 	fetchDeps=' \
 		ca-certificates \
+		dirmngr \
+		gpg \
+		gpg-agent \
 		wget \
 	'; \
 	apt-get update; \
@@ -22,7 +25,7 @@ RUN set -ex; \
 	\
 # verify the signature
 	export GNUPGHOME="$(mktemp -d)"; \
-	gpg --keyserver ha.pool.sks-keyservers.net --recv-keys B42F6819007F00F88E364FD4036A9C25BF357DD4; \
+	gpg --keyserver ipv4.pool.sks-keyservers.net --recv-keys B42F6819007F00F88E364FD4036A9C25BF357DD4; \
 	gpg --batch --verify /usr/local/bin/gosu.asc /usr/local/bin/gosu; \
 	rm -r "$GNUPGHOME" /usr/local/bin/gosu.asc; \
 	\
@@ -38,6 +41,9 @@ RUN mkdir /docker-entrypoint-initdb.d
 # install "apt-transport-https" for Percona's repo (switched to https-only)
 RUN apt-get update && apt-get install -y --no-install-recommends \
 		apt-transport-https ca-certificates \
+		dirmngr \
+		gpg \
+		gpg-agent \
 		pwgen \
 	&& rm -rf /var/lib/apt/lists/*
 
@@ -58,7 +64,7 @@ ENV GPG_KEYS \
 RUN set -ex; \
 	export GNUPGHOME="$(mktemp -d)"; \
 	for key in $GPG_KEYS; do \
-		gpg --keyserver ha.pool.sks-keyservers.net --recv-keys "$key"; \
+		gpg --keyserver ipv4.pool.sks-keyservers.net --recv-keys "$key"; \
 	done; \
 	gpg --export $GPG_KEYS > /etc/apt/trusted.gpg.d/mariadb.gpg; \
 	rm -r "$GNUPGHOME"; \
