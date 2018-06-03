@@ -26,4 +26,4 @@ wp menu location assign Navigation primary
 
 wp theme delete twentyfifteen twentyseventeen twentysixteen
 
-wp post delete $(wp post list --post_type='page,post' --format=ids)
+wp post delete --force $(wp post list --post_type='page,post' --format=ids)
