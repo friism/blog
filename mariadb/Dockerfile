@@ -47,19 +47,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 		pwgen \
 	&& rm -rf /var/lib/apt/lists/*
 
-ENV GPG_KEYS \
-# Key fingerprint = 177F 4010 FE56 CA33 3630  0305 F165 6F24 C74C D1D8
-# MariaDB Package Signing Key <package-signing-key@mariadb.org>
-	177F4010FE56CA3336300305F1656F24C74CD1D8 \
-
-RUN set -ex; \
-	export GNUPGHOME="$(mktemp -d)"; \
-	for key in $GPG_KEYS; do \
-		gpg --keyserver ipv4.pool.sks-keyservers.net --recv-keys "$key"; \
-	done; \
-	gpg --export $GPG_KEYS > /etc/apt/trusted.gpg.d/mariadb.gpg; \
-	rm -r "$GNUPGHOME"; \
-	apt-key list
+RUN apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xF1656F24C74CD1D8 \
+	&& apt-key list
 
 ENV MARIADB_MAJOR 10.3
 ENV MARIADB_VERSION 1:10.3.7+maria~bionic
