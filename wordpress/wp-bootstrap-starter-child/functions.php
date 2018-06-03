@@ -33,4 +33,5 @@ function wpgood_nav_search($items, $args) {
     return $items . '<li>' . get_search_form(false) . '</li>';
 }
 add_filter('wp_nav_menu_items', 'wpgood_nav_search', 10, 2);
+
 ?>
