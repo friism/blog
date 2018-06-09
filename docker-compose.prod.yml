@@ -19,7 +19,9 @@ services:
     depends_on:
       - blog
     volumes:
-      - blog-www-html:/var/www/html
+      - blog-www-html:/var/www/html:ro
+      - letsencrypt-certs:/etc/letsencrypt:ro
+      - letsencrypt-challenge:/data/letsencrypt:ro
     restart: always
   db:
     build:
@@ -37,4 +39,8 @@ volumes:
   blog-www-html:
     external: true
   blog-db-data:
+    external: true
+  letsencrypt-certs:
+    external: true
+  letsencrypt-challenge:
     external: true
