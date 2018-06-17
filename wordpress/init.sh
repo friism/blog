@@ -17,12 +17,11 @@ wp plugin activate akismet
 
 wp option set permalink_structure "/%postname%/"
 
-wp theme install wp-bootstrap-starter --activate
-wp theme activate wp-bootstrap-starter-child
-wp widget deactivate categories-2 meta-2 recent-posts-2 recent-comments-2
+wp theme activate friism
+# wp widget deactivate categories-2 meta-2 recent-posts-2 recent-comments-2
 
-wp menu create "Navigation"
-wp menu location assign Navigation primary
+# wp menu create "Navigation"
+# wp menu location assign Navigation primary
 
 wp theme delete twentyfifteen twentyseventeen twentysixteen
 

@@ -56,5 +56,5 @@ VOLUME [ "/var/www/html" ]
 
 FROM base as prod
 
-COPY wp-bootstrap-starter-child /var/www/html/wp-content/themes/wp-bootstrap-starter-child
+COPY friism /var/www/html/wp-content/themes/friism
 VOLUME [ "/var/www/html" ]
