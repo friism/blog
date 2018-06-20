@@ -48,6 +48,8 @@ RUN set -ex; \
 COPY init.sh /admin/init.sh
 RUN chmod u+x /admin/init.sh
 
+COPY uploads.ini /usr/local/etc/php/conf.d/uploads.ini
+
 FROM base as dev
 
 VOLUME [ "/var/www/html" ]
