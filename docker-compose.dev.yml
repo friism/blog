@@ -5,29 +5,37 @@ services:
     build:
       context: wordpress
       target: dev
+    environment:
+      - WP_ADMIN_PASSWORD=${WP_ADMIN_PASSWORD}
     volumes:
       - blog-www-html:/var/www/html
-      - ./wordpress/wp-bootstrap-starter-child:/var/www/html/wp-content/themes/wp-bootstrap-starter-child
+      - ./wordpress/friism:/var/www/html/wp-content/themes/friism
     depends_on:
       - db
+    restart: on-failure
   nginx:
-    build: nginx
+    build:
+      context: nginx
+      target: dev
     ports:
       - "80:80"
     depends_on:
       - blog
     volumes:
-      - blog-www-html:/var/www/html
-      - ./wordpress/wp-bootstrap-starter-child:/var/www/html/wp-content/themes/wp-bootstrap-starter-child
+      - blog-www-html:/var/www/html:ro
+      - ./wordpress/friism:/var/www/html/wp-content/themes/friism
+    restart: always
   db:
-    image: mariadb
+    build:
+      context: mariadb
     environment:
       - MYSQL_RANDOM_ROOT_PASSWORD=yes
       - MYSQL_USER=wordpress
-      - MYSQL_PASSWORD=Passw0rd
+      - MYSQL_PASSWORD=${DB_PASS}
       - MYSQL_DATABASE=db
     volumes:
       - blog-db-data:/var/lib/mysql
+    restart: always
 
 volumes:
   blog-www-html:
