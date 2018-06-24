@@ -18,11 +18,9 @@ wp plugin activate akismet
 wp option set permalink_structure "/%postname%/"
 
 wp theme activate friism
-# wp widget deactivate categories-2 meta-2 recent-posts-2 recent-comments-2
+wp widget deactivate categories-2 meta-2 recent-posts-2 recent-comments-2
 
-# wp menu create "Navigation"
-# wp menu location assign Navigation primary
+wp menu create "Navigation"
+wp menu location assign Navigation primary
 
 wp theme delete twentyfifteen twentyseventeen twentysixteen
-
-wp post delete --force $(wp post list --post_type='page,post' --format=ids)
