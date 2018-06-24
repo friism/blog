@@ -47,7 +47,7 @@ RUN set -ex; \
 
 COPY init.sh /admin/init.sh
 RUN chmod u+x /admin/init.sh
-COPY wipe-posts.sh /admin/wipe-posts/sh
+COPY wipe-posts.sh /admin/wipe-posts.sh
 RUN chmod u+x /admin/wipe-posts.sh
 
 COPY uploads.ini /usr/local/etc/php/conf.d/uploads.ini
