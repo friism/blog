@@ -54,9 +54,6 @@ COPY uploads.ini /usr/local/etc/php/conf.d/uploads.ini
 
 FROM base as dev
 
-VOLUME [ "/var/www/html" ]
-
 FROM base as prod
 
 COPY friism /var/www/html/wp-content/themes/friism
-VOLUME [ "/var/www/html" ]
