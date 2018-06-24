@@ -8,7 +8,7 @@
 
 get_header(); ?>
 
-	<section id="primary" class="content-area col-sm-12 col-lg-8">
+	<section id="primary" class="content-area col">
 		<main id="main" class="site-main" role="main">
 
 		<?php
@@ -16,7 +16,7 @@ get_header(); ?>
 
 			get_template_part( 'template-parts/content', get_post_format() );
 
-			    the_post_navigation();
+			the_post_navigation();
 
 			// If comments are open or we have at least one comment, load up the comment template.
 			if ( comments_open() || get_comments_number() ) :
@@ -30,5 +30,4 @@ get_header(); ?>
 	</section><!-- #primary -->
 
 <?php
-get_sidebar();
 get_footer();
