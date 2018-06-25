@@ -52,6 +52,8 @@ RUN chmod u+x /admin/wipe-posts.sh
 
 COPY uploads.ini /usr/local/etc/php/conf.d/uploads.ini
 
+VOLUME [ "/var/www/html" ]
+
 FROM base as dev
 
 FROM base as prod
