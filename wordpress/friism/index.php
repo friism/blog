@@ -15,15 +15,18 @@ get_header(); ?>
 	<section id="primary" class="content-area col">
 		<main id="main" class="site-main" role="main">
 
-		<?php if ( have_posts() ) {
-			while ( have_posts() ) {
-				the_post();
-				get_template_part( 'template-parts/content', get_post_format() );
+			<?php if ( have_posts() ) {
+				while ( have_posts() ) {
+					the_post();
+					get_template_part( 'template-parts/content', get_post_format() );
+				}
 			}
-		}
-		the_posts_navigation()
-		?>
+			?>
 
+			<nav class="blog-pagination">
+				<?php next_posts_link('Older') ?>
+				<?php previous_posts_link('Newer') ?>
+			</nav>
 		</main><!-- #main -->
 	</section><!-- #primary -->
 
