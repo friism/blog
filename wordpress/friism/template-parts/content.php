@@ -27,7 +27,7 @@
 		<?php
 		endif; ?>
 	</header><!-- .entry-header -->
-	<div>
+	<div class="pt-3">
 		<?php
         if ( is_single() ) :
 			the_content();
