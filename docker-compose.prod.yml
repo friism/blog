@@ -8,7 +8,7 @@ services:
     environment:
       - WP_ADMIN_PASSWORD=${WP_ADMIN_PASSWORD}
     volumes:
-      - blog-www-html:/var/www/html
+      - blog-www-html-new:/var/www/html
     depends_on:
       - db
     restart: on-failure
@@ -22,7 +22,7 @@ services:
     depends_on:
       - blog
     volumes:
-      - blog-www-html:/var/www/html:ro
+      - blog-www-html-new:/var/www/html:ro
       - letsencrypt-certs:/etc/letsencrypt:ro
       - letsencrypt-challenge:/data/letsencrypt:ro
     restart: always
@@ -39,7 +39,7 @@ services:
     restart: always
 
 volumes:
-  blog-www-html:
+  blog-www-html-new:
     external: true
   blog-db-data:
     external: true
