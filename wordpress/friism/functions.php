@@ -15,7 +15,8 @@ function wpb_add_googleanalytics() { ?>
 
 function theme_styles() {
 
-	wp_enqueue_style( 'bootstrap_css', 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css' );
+  wp_enqueue_style( 'bootstrap_css', 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css' );
+  wp_enqueue_style( 'roboto_font', 'https://fonts.googleapis.com/css?family=Roboto' );
 	wp_enqueue_style( 'main_css', get_template_directory_uri() . '/style.css' );
 }
 add_action( 'wp_enqueue_scripts', 'theme_styles');
