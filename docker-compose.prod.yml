@@ -42,7 +42,6 @@ services:
 
 volumes:
   blog-www-html:
-    external: true
   blog-uploads:
     external: true
   blog-db-data:
