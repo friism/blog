@@ -20,17 +20,21 @@
 </head>
 
 <body>
-<div class="container">
-	<header class="blog-header py-3">
-        <div class="row">
-          <div class="col-6">
-            <a class="blog-header-logo text-dark" href="<?php echo esc_url( home_url( '/' )); ?>"><?php esc_url(bloginfo('name')); ?></a>
-          </div>
-          <div class="col-6 d-flex justify-content-end align-items-center">
-            <?php get_search_form() ?>
-          </div>
-        </div>
-    </header><!-- #masthead -->
-</div>
+<header class="container">
+  <nav class="navbar navbar-expand-sm navbar-light bg-light pl-0">
+    <a class="navbar-brand" href="<?php echo esc_url( home_url( '/' )); ?>">
+      <?php esc_url(bloginfo('name')); ?>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <?php get_search_form() ?>
+    </div>
+  </nav>
+</header>
+
+<hr>
+
 <main class="container">
 	<div class="row">
