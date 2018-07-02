@@ -52,6 +52,8 @@ RUN chmod u+x /admin/wipe-posts.sh
 
 COPY uploads.ini /usr/local/etc/php/conf.d/uploads.ini
 
+RUN mkdir -p /var/www/html/wp-content/uploads
+
 VOLUME [ "/var/www/html" ]
 
 FROM base as dev
