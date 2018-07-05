@@ -9,9 +9,6 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" class="blog-post" >
-	<div class="post-thumbnail">
-		<?php the_post_thumbnail(); ?>
-	</div>
 	<header class="entry-header border-bottom">
 		<?php
 		if ( is_single() ) :
