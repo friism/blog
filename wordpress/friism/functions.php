@@ -1,5 +1,7 @@
 <?php
 
+add_theme_support( 'post-thumbnails' );
+
 add_action('wp_head', 'wpb_add_googleanalytics');
 function wpb_add_googleanalytics() { ?>
 
