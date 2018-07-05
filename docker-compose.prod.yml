@@ -7,6 +7,12 @@ services:
       target: prod
     environment:
       - WP_ADMIN_PASSWORD=${WP_ADMIN_PASSWORD}
+      - WP_API_KEY=${WP_API_KEY}
+      - WP_URL=${WP_URL}
+      - WP_TITLE=${}
+      - WP_ADMIN_USER=${}
+      - DB_PASS=${DB_PASS}
+      - WP_ADMIN_EMAIL=${WP_ADMIN_EMAIL}
     volumes:
       - blog-www-html:/var/www/html
       - blog-uploads:/var/www/html/wp-content/uploads
