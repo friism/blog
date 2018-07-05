@@ -43,7 +43,9 @@ RUN set -ex; \
 	# upstream tarballs include ./wordpress/ so this gives us /var/www/wordpress
 	tar -xzf wordpress.tar.gz -C /var/www/html --strip-components=1; \
 	rm wordpress.tar.gz; \
-	chown -R www-data:www-data /var/www/html
+	chown -R www-data:www-data /var/www/html; \
+	rm -rf /var/www/wordpress/themes/*; \
+	rm -rf /var/www/wordpress/plugins/hello
 
 COPY init.sh /admin/init.sh
 RUN chmod u+x /admin/init.sh
@@ -55,6 +57,9 @@ COPY uploads.ini /usr/local/etc/php/conf.d/uploads.ini
 RUN mkdir -p /var/www/html/wp-content/uploads
 
 VOLUME [ "/var/www/html" ]
+
+USER www-data
+ENTRYPOINT /admin/init.sh && php-fpm
 
 FROM base as dev
 
