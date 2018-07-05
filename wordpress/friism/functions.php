@@ -35,4 +35,57 @@ add_action( 'wp_enqueue_scripts', 'theme_js');
 
 require get_template_directory() . '/template-tags.php';
 
+function add_opengraph_doctype($output) {
+  $output = $output . '
+  xmlns="https://www.w3.org/1999/xhtml"
+  xmlns:og="https://ogp.me/ns#"
+  xmlns:fb="http://www.facebook.com/2008/fbml"';
+  if (is_singular()) { //if it is not a post or a page
+    $output = $output . ' xmlns:article="http://ogp.me/ns/article#"';
+  }
+  return $output;
+}
+add_filter('language_attributes', 'add_opengraph_doctype');
+
+function facebook_open_graph() {
+  global $post;
+  if ( !is_singular()) //if it is not a post or a page
+    return;
+  if($excerpt = $post->post_excerpt) {
+    $excerpt = strip_tags($post->post_excerpt);
+    $excerpt = str_replace("", "'", $excerpt);
+  }
+  else {
+    $excerpt = get_bloginfo('description');
+  }
+
+  echo '<meta property="fb:admins" content="337600016"/>';
+  echo '<meta property="og:title" content="' . get_the_title() . '"/>';
+  if (strlen($excerpt) !== 0){
+    echo '<meta property="og:description" content="' . $excerpt . '"/>';
+  }
+  echo '<meta property="og:type" content="article"/>';
+  echo '<meta property="og:url" content="' . get_permalink() . '"/>';
+
+  echo '<meta name="twitter:card" content="summary_large_image" />';
+  echo '<meta name="twitter:site" content="@friism" />';
+  echo '<meta name="twitter:creator" content="@friism" />';
+  echo '<meta name="twitter:title" content="' . get_the_title() . '" />';
+
+  echo '<meta property="og:site_name" content="' . get_bloginfo( 'name' ) . '"/>';
+  if(!has_post_thumbnail( $post->ID )) { //the post does not have featured image, use a default image
+    //Create a default image on your server or an image in your media library, and insert it's URL here
+    // $default_image="http://example.com/image.jpg";
+    // echo '<meta property="og:image" content="' . $default_image . '"/>';
+  }
+  else {
+    $thumbnail_src = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'large' );
+    echo '<meta property="og:image" content="' . esc_attr( $thumbnail_src[0] ) . '"/>';
+    echo '<meta name="twitter:image" content="' . esc_attr( $thumbnail_src[0] ) . '">';
+  }
+  echo "
+";
+}
+add_action( 'wp_head', 'facebook_open_graph', 5 );
+
 ?>
