@@ -16,7 +16,7 @@
     ?>
     <header class="entry-header">
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-	</header><!-- .entry-header -->
+	</header>
     <?php } ?>
 
 	<div class="entry-content">
@@ -28,7 +28,7 @@
 				'after'  => '</div>',
 			) );
 		?>
-	</div><!-- .entry-content -->
+	</div>
 
 	<?php if ( get_edit_post_link() && !$enable_vc ) : ?>
 		<footer class="entry-footer">
@@ -43,6 +43,6 @@
 					'</span>'
 				);
 			?>
-		</footer><!-- .entry-footer -->
+		</footer>
 	<?php endif; ?>
-</article><!-- #post-## -->
+</article>

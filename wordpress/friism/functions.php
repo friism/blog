@@ -37,7 +37,7 @@ require get_template_directory() . '/template-tags.php';
 
 function add_opengraph_doctype($output) {
   $output = $output . '
-  xmlns="https://www.w3.org/1999/xhtml"
+  xmlns="http://www.w3.org/1999/xhtml"
   xmlns:og="https://ogp.me/ns#"
   xmlns:fb="http://www.facebook.com/2008/fbml"';
   if (is_singular()) { //if it is not a post or a page

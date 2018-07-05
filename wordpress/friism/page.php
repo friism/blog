@@ -12,18 +12,12 @@
  */
 
 get_header(); ?>
-
-	<section id="primary" class="content-area col">
-		<main id="main" class="site-main" role="main">
-
-			<?php
-			while ( have_posts() ) : the_post();
-
-			endwhile;
-			?>
-
-		</main><!-- #main -->
-	</section><!-- #primary -->
+	<main id="main" class="content-area col" role="main">
+		<?php
+		while ( have_posts() ) : the_post();
+		endwhile;
+		?>
+	</main>
 
 <?php
 get_footer();

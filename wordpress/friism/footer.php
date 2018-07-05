@@ -9,11 +9,10 @@
  */
 
 ?>
-			</div><!-- .row -->
-</main><!-- .container -->
-	<footer class="blog-footer ?>" role="contentinfo">
-		<p>&copy; <?php echo date('Y'); ?> <?php echo '<a href="'.home_url().'">'.get_bloginfo('name').'</a>'; ?> </p>
-	</footer><!-- #colophon -->
+</main>
+<footer class="blog-footer ?>" role="contentinfo">
+	<p>&copy; <?php echo date('Y'); ?> <?php echo '<a href="'.home_url().'">'.get_bloginfo('name').'</a>'; ?> </p>
+</footer>
 
 <?php wp_footer(); ?>
 </body>

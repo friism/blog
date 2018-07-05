@@ -37,4 +37,3 @@
 <hr>
 
 <main class="container">
-	<div class="row">

@@ -9,7 +9,7 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" class="blog-post" >
-	<header class="entry-header border-bottom">
+	<header class="border-bottom">
 		<?php
 		if ( is_single() ) :
 			the_title( '<h1 class="blog-post-title">', '</h1>' );
@@ -20,10 +20,10 @@
 		if ( 'post' === get_post_type() ) : ?>
 		<p class="blog-post-meta">
 			<?php wp_bootstrap_starter_posted_on(); ?>
-		</p><!-- .entry-meta -->
+		</p>
 		<?php
 		endif; ?>
-	</header><!-- .entry-header -->
+	</header>
 	<div class="pt-3">
 		<?php
         if ( is_single() ) :
@@ -37,9 +37,9 @@
 				'after'  => '</div>',
 			) );
 		?>
-	</div><!-- .entry-content -->
+	</div>
 
 	<footer class="entry-footer">
 		<?php wp_bootstrap_starter_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
-</article><!-- #post-## -->
+	</footer>
+</article>

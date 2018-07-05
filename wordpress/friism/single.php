@@ -8,9 +8,7 @@
 
 get_header(); ?>
 
-	<section id="primary" class="content-area col">
-		<main id="main" class="site-main" role="main">
-
+	<article class="content-area col">
 		<?php
 		while ( have_posts() ) : the_post();
 
@@ -23,11 +21,10 @@ get_header(); ?>
 				comments_template();
 			endif;
 
-		endwhile; // End of the loop.
+		endwhile;
 		?>
 
-		</main><!-- #main -->
-	</section><!-- #primary -->
+		</main>
 
 <?php
 get_footer();
