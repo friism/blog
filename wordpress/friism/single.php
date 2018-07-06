@@ -22,7 +22,7 @@ get_header(); ?>
 		endwhile;
 		?>
 
-		</main>
+	</article>
 
 <?php
 get_footer();
