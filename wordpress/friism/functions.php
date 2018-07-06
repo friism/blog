@@ -63,7 +63,7 @@ function facebook_open_graph() {
   echo '<meta property="fb:app_id" content="620660554979626"/>';
   echo '<meta property="og:title" content="' . get_the_title() . '"/>';
   if (strlen($excerpt) !== 0){
-    echo '<meta property="og:description" content="' . $excerpt . '"/>';
+    echo '<meta property="og:description" content="' . htmlspecialchars($excerpt) . '"/>';
   }
   echo '<meta property="og:type" content="article"/>';
   echo '<meta property="og:url" content="' . get_permalink() . '"/>';
@@ -71,7 +71,7 @@ function facebook_open_graph() {
   echo '<meta name="twitter:card" content="summary_large_image" />';
   echo '<meta name="twitter:site" content="@friism" />';
   echo '<meta name="twitter:creator" content="@friism" />';
-  echo '<meta name="twitter:title" content="' . get_the_title() . '" />';
+  echo '<meta name="twitter:title" content="' . htmlspecialchars(get_the_title()) . '" />';
 
   echo '<meta property="og:site_name" content="' . get_bloginfo( 'name' ) . '"/>';
   if(!has_post_thumbnail( $post->ID )) { //the post does not have featured image, use a default image
