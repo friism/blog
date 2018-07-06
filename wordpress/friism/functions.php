@@ -60,6 +60,7 @@ function facebook_open_graph() {
   }
 
   echo '<meta property="fb:admins" content="337600016"/>';
+  echo '<meta property="fb:app_id" content="620660554979626"/>';
   echo '<meta property="og:title" content="' . get_the_title() . '"/>';
   if (strlen($excerpt) !== 0){
     echo '<meta property="og:description" content="' . $excerpt . '"/>';
