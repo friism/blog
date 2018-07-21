@@ -89,4 +89,23 @@ function facebook_open_graph() {
 }
 add_action( 'wp_head', 'facebook_open_graph', 5 );
 
+function add_responsive_class($content){
+
+  $content = mb_convert_encoding($content, 'HTML-ENTITIES', "UTF-8");
+  $document = new DOMDocument();
+  libxml_use_internal_errors(true);
+  $document->loadHTML(utf8_decode($content));
+
+  $imgs = $document->getElementsByTagName('img');
+  foreach ($imgs as $img) {
+    $existing_class = $img->getAttribute('class');
+    $img->setAttribute('class', "img-fluid $existing_class");
+  }
+
+  $html = $document->saveHTML();
+  return $html;
+}
+
+add_filter('the_content','add_responsive_class');
+
 ?>
