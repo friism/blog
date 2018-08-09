@@ -21,7 +21,7 @@
 
 <body>
 <header class="container">
-  <nav class="navbar navbar-expand-sm navbar-light bg-light pl-0">
+  <nav class="navbar navbar-expand-sm navbar-light bg-white pl-0">
     <a class="navbar-brand" href="<?php echo esc_url( home_url( '/' )); ?>">
       <?php esc_url(bloginfo('name')); ?>
     </a>
