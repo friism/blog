@@ -34,7 +34,7 @@ RUN { \
 RUN curl -o /usr/local/bin/wp -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && \
 	chmod +x /usr/local/bin/wp
 
-ENV WORDPRESS_VERSION 4.9.6
+ENV WORDPRESS_VERSION 4.9.8
 ENV WORDPRESS_SHA1 40616b40d120c97205e5852c03096115c2fca537
 
 RUN set -ex; \
