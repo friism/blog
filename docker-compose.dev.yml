@@ -7,6 +7,7 @@ services:
       target: dev
     environment:
       - WP_ADMIN_PASSWORD=${WP_ADMIN_PASSWORD}
+      - DB_PASS=${DB_PASS}
     volumes:
       - blog-www-html:/var/www/html
       - ./wordpress/friism:/var/www/html/wp-content/themes/friism
