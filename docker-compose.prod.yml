@@ -33,7 +33,7 @@ services:
       - blog-uploads:/var/www/html/wp-content/uploads:ro
       - letsencrypt-certs:/etc/letsencrypt:ro
       - letsencrypt-challenge:/data/letsencrypt:ro
-    restart: always
+    restart: on-failure
   db:
     build:
       context: mariadb
@@ -44,7 +44,7 @@ services:
       - MYSQL_DATABASE=db
     volumes:
       - blog-db-data:/var/lib/mysql
-    restart: always
+    restart: on-failure
 
 volumes:
   blog-www-html:
