@@ -52,11 +52,11 @@ RUN chmod u+x /admin/wipe-posts.sh
 
 COPY uploads.ini /usr/local/etc/php/conf.d/uploads.ini
 
+USER www-data
 RUN mkdir -p /var/www/html/wp-content/uploads
 
 VOLUME [ "/var/www/html" ]
 
-USER www-data
 ENTRYPOINT /admin/init.sh && php-fpm
 
 FROM base as dev
