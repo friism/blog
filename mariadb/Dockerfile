@@ -52,7 +52,7 @@ RUN apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xF1656F24
 	&& apt-key list
 
 ENV MARIADB_MAJOR 10.3
-ENV MARIADB_VERSION 1:10.3.7+maria~bionic
+ENV MARIADB_VERSION 1:10.3.10+maria~bionic
 
 RUN echo "deb http://ftp.osuosl.org/pub/mariadb/repo/$MARIADB_MAJOR/ubuntu bionic main" > /etc/apt/sources.list.d/mariadb.list \
 	&& { \
