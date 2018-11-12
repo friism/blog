@@ -49,8 +49,6 @@ add_filter('language_attributes', 'add_opengraph_doctype');
 
 function facebook_open_graph() {
   global $post;
-  if ( !is_singular()) //if it is not a post or a page
-    return;
   if($excerpt = $post->post_excerpt) {
     $excerpt = strip_tags($post->post_excerpt);
     $excerpt = str_replace("", "'", $excerpt);
@@ -58,31 +56,39 @@ function facebook_open_graph() {
   else {
     $excerpt = get_bloginfo('description');
   }
-
-  echo '<meta property="fb:admins" content="337600016"/>';
-  echo '<meta property="fb:app_id" content="620660554979626"/>';
-  echo '<meta property="og:title" content="' . get_the_title() . '"/>';
   if (strlen($excerpt) !== 0){
     echo '<meta property="og:description" content="' . htmlspecialchars($excerpt) . '"/>';
   }
-  echo '<meta property="og:type" content="article"/>';
-  echo '<meta property="og:url" content="' . get_permalink() . '"/>';
 
-  echo '<meta name="twitter:card" content="summary_large_image" />';
-  echo '<meta name="twitter:site" content="@friism" />';
-  echo '<meta name="twitter:creator" content="@friism" />';
-  echo '<meta name="twitter:title" content="' . htmlspecialchars(get_the_title()) . '" />';
-
-  echo '<meta property="og:site_name" content="' . get_bloginfo( 'name' ) . '"/>';
-  if(!has_post_thumbnail( $post->ID )) { //the post does not have featured image, use a default image
-    //Create a default image on your server or an image in your media library, and insert it's URL here
-    // $default_image="http://example.com/image.jpg";
-    // echo '<meta property="og:image" content="' . $default_image . '"/>';
+  if ( !is_singular()) { //if it is not a post or a page
+    echo '<title>' . get_bloginfo('name') . '</title>';
   }
   else {
-    $thumbnail_src = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'large' );
-    echo '<meta property="og:image" content="' . esc_attr( $thumbnail_src[0] ) . '"/>';
-    echo '<meta name="twitter:image" content="' . esc_attr( $thumbnail_src[0] ) . '">';
+
+    echo '<title>' . get_the_title() . '</title>';
+
+    echo '<meta property="fb:admins" content="337600016"/>';
+    echo '<meta property="fb:app_id" content="620660554979626"/>';
+    echo '<meta property="og:title" content="' . get_the_title() . '"/>';
+    echo '<meta property="og:type" content="article"/>';
+    echo '<meta property="og:url" content="' . get_permalink() . '"/>';
+
+    echo '<meta name="twitter:card" content="summary_large_image" />';
+    echo '<meta name="twitter:site" content="@friism" />';
+    echo '<meta name="twitter:creator" content="@friism" />';
+    echo '<meta name="twitter:title" content="' . htmlspecialchars(get_the_title()) . '" />';
+
+    echo '<meta property="og:site_name" content="' . get_bloginfo( 'name' ) . '"/>';
+    if(!has_post_thumbnail( $post->ID )) { //the post does not have featured image, use a default image
+      //Create a default image on your server or an image in your media library, and insert it's URL here
+      // $default_image="http://example.com/image.jpg";
+      // echo '<meta property="og:image" content="' . $default_image . '"/>';
+    }
+    else {
+      $thumbnail_src = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'large' );
+      echo '<meta property="og:image" content="' . esc_attr( $thumbnail_src[0] ) . '"/>';
+      echo '<meta name="twitter:image" content="' . esc_attr( $thumbnail_src[0] ) . '">';
+    }
   }
   echo "
 ";
