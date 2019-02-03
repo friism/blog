@@ -51,8 +51,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 RUN apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xF1656F24C74CD1D8 \
 	&& apt-key list
 
-ENV MARIADB_MAJOR 10.3
-ENV MARIADB_VERSION 1:10.3.10+maria~bionic
+ENV MARIADB_MAJOR 10.4
+ENV MARIADB_VERSION 1:10.4.2+maria~bionic
 
 RUN echo "deb http://ftp.osuosl.org/pub/mariadb/repo/$MARIADB_MAJOR/ubuntu bionic main" > /etc/apt/sources.list.d/mariadb.list \
 	&& { \
