@@ -6,8 +6,11 @@ services:
       context: wordpress
       target: dev
     environment:
-      - WP_ADMIN_PASSWORD=${WP_ADMIN_PASSWORD}
-      - DB_PASS=${DB_PASS}
+      - WP_ADMIN_PASSWORD=wp-pass
+      - DB_PASS=db-pass
+      - WP_ADMIN_EMAIL=example@example.com
+      - WP_URL=http://localhost/
+      - WP_TITLE=Example
     volumes:
       - blog-www-html:/var/www/html
       - ./wordpress/friism:/var/www/html/wp-content/themes/friism
@@ -31,7 +34,7 @@ services:
     environment:
       - MYSQL_RANDOM_ROOT_PASSWORD=yes
       - MYSQL_USER=wordpress
-      - MYSQL_PASSWORD=${DB_PASS}
+      - MYSQL_PASSWORD=db-pass
       - MYSQL_DATABASE=db
     volumes:
       - blog-db-data:/var/lib/mysql
