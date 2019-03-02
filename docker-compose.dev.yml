@@ -27,8 +27,7 @@ services:
       - ./wordpress/friism:/var/www/html/wp-content/themes/friism
     restart: always
   db:
-    build:
-      context: mariadb
+    image: mariadb:10.4
     environment:
       - MYSQL_RANDOM_ROOT_PASSWORD=yes
       - MYSQL_USER=wordpress
