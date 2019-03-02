@@ -7,6 +7,7 @@ services:
       target: dev
     environment:
       - WP_ADMIN_PASSWORD=wp-pass
+      - WP_ADMIN_USER=admin
       - DB_PASS=db-pass
       - WP_ADMIN_EMAIL=example@example.com
       - WP_URL=http://localhost/
