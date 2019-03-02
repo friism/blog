@@ -42,8 +42,8 @@ RUN set -ex; \
 	tar -xzf wordpress.tar.gz -C /var/www/html --strip-components=1; \
 	rm wordpress.tar.gz; \
 	chown -R www-data:www-data /var/www/html; \
-	rm -rf /var/www/wordpress/themes/*; \
-	rm -rf /var/www/wordpress/plugins/hello
+	rm -rf /var/www/html/wp-content/themes/*; \
+	rm -f /var/www/html/wp-content/plugins/hello.php
 
 COPY init.sh /admin/init.sh
 RUN chmod u+x /admin/init.sh
