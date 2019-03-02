@@ -28,7 +28,7 @@ services:
     volumes:
       - blog-www-html:/var/www/html:ro
       - ./wordpress/friism:/var/www/html/wp-content/themes/friism
-    restart: always
+    restart: on-failure
   db:
     image: mariadb:10.4
     environment:
@@ -38,7 +38,7 @@ services:
       - MYSQL_DATABASE=db
     volumes:
       - blog-db-data:/var/lib/mysql
-    restart: always
+    restart: on-failure
 
 volumes:
   blog-www-html:
