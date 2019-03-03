@@ -12,6 +12,7 @@ services:
       - WP_ADMIN_EMAIL=example@example.com
       - WP_URL=http://localhost/
       - WP_TITLE=Example
+      - WP_DESCRIPTION=test description
     volumes:
       - blog-www-html:/var/www/html
       - ./wordpress/friism:/var/www/html/wp-content/themes/friism

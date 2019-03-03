@@ -17,6 +17,7 @@ wp plugin update akismet
 wp plugin activate akismet
 
 wp option set permalink_structure "/%postname%/"
+wp option update blogdescription "$WP_DESCRIPTION"
 
 wp theme activate friism
 wp widget deactivate categories-2 meta-2 recent-posts-2 recent-comments-2
