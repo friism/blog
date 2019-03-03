@@ -35,8 +35,7 @@ services:
       - letsencrypt-challenge:/data/letsencrypt:ro
     restart: on-failure
   db:
-    build:
-      context: mariadb
+    image: mariadb:10.4
     environment:
       - MYSQL_RANDOM_ROOT_PASSWORD=yes
       - MYSQL_USER=wordpress
