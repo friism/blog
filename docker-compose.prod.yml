@@ -13,6 +13,7 @@ services:
       - WP_ADMIN_USER=${WP_ADMIN_USER}
       - DB_PASS=${DB_PASS}
       - WP_ADMIN_EMAIL=${WP_ADMIN_EMAIL}
+      - WP_DESCRIPTION=${WP_DESCRIPTION}
     volumes:
       - blog-www-html:/var/www/html
       - blog-uploads:/var/www/html/wp-content/uploads
