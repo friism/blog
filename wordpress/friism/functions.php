@@ -1,6 +1,7 @@
 <?php
 
 add_theme_support( 'post-thumbnails' );
+add_theme_support( 'title-tag' );
 
 add_action('wp_head', 'wpb_add_googleanalytics');
 function wpb_add_googleanalytics() { ?>
@@ -60,13 +61,7 @@ function facebook_open_graph() {
     echo '<meta property="og:description" content="' . htmlspecialchars($excerpt) . '"/>';
   }
 
-  if ( !is_singular()) { //if it is not a post or a page
-    echo '<title>' . get_bloginfo('name') . '</title>';
-  }
-  else {
-
-    echo '<title>' . get_the_title() . '</title>';
-
+  if ( is_singular()) {
     echo '<meta property="fb:admins" content="337600016"/>';
     echo '<meta property="fb:app_id" content="620660554979626"/>';
     echo '<meta property="og:title" content="' . get_the_title() . '"/>';
