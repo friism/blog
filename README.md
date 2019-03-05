@@ -20,10 +20,6 @@ Wordpress uses MariaDB (over TCP) for persistense of posts. Media is persisted o
 
 ### Development
 
-TODO
-
-### Production
-
 1. Create volumes for Wordpress and MariaDB data.
 
     docker volume create blog-db-data
@@ -31,7 +27,24 @@ TODO
 
 2. Build
 
-    docker-compose -f .\docker-compose.prod.yml build
+    docker-compose -f docker-compose.dev.yml build
+
+3. Run
+
+    docker-compose -f docker-compose.dev.yml up
+
+### Production
+
+1. Create volumes for Wordpress, MariaDB data and Let's Encrypt certs.
+
+    docker volume create blog-db-data
+    docker volume create blog-www-html
+    docker volume create letsencrypt-certs
+    docker volume create letsencrypt-challenge
+
+2. Build
+
+    docker-compose -f docker-compose.prod.yml build
 
 3. Set passwords as env vars. These are substituted by Docker Compose (example is for PowerShell).
 
