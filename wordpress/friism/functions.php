@@ -91,7 +91,7 @@ function facebook_open_graph() {
 }
 add_action( 'wp_head', 'facebook_open_graph', 5 );
 
-function add_responsive_class($content){
+function add_responsive_class_and_lazyload($content){
 
   $content = mb_convert_encoding($content, 'HTML-ENTITIES', "UTF-8");
   $document = new DOMDocument();
@@ -102,12 +102,14 @@ function add_responsive_class($content){
   foreach ($imgs as $img) {
     $existing_class = $img->getAttribute('class');
     $img->setAttribute('class', "img-fluid $existing_class");
+
+    $img->setAttribute('lazyload', "on");
   }
 
   $html = $document->saveHTML();
   return $html;
 }
 
-add_filter('the_content','add_responsive_class');
+add_filter('the_content','add_responsive_class_and_lazyload');
 
 ?>
