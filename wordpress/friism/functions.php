@@ -92,6 +92,10 @@ add_action( 'wp_head', 'facebook_open_graph', 5 );
 
 function add_responsive_class_and_lazyload($content){
 
+  if ( ! $content ) {
+    return $content;
+  }
+
   $content = mb_convert_encoding($content, 'HTML-ENTITIES', "UTF-8");
   $document = new DOMDocument();
   libxml_use_internal_errors(true);
