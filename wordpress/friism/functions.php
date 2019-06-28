@@ -36,13 +36,12 @@ add_action( 'wp_enqueue_scripts', 'theme_js');
 require get_template_directory() . '/template-tags.php';
 
 function add_opengraph_doctype($output) {
-  $output = $output . '
-  xmlns="http://www.w3.org/1999/xhtml"
-  xmlns:og="https://ogp.me/ns#"
-  xmlns:fb="http://www.facebook.com/2008/fbml"';
+  $prefixValue = 'og: https://ogp.me/ns# fb: http://www.facebook.com/2008/fbml';
   if (is_singular()) { //if it is not a post or a page
-    $output = $output . ' xmlns:article="http://ogp.me/ns/article#"';
+    $prefixValue = $prefixValue . ' article: http://ogp.me/ns/article#';
   }
+
+  $output = $output . ' xmlns="http://www.w3.org/1999/xhtml" prefix="' . $prefixValue .'"';
   return $output;
 }
 add_filter('language_attributes', 'add_opengraph_doctype');
