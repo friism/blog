@@ -105,7 +105,7 @@ function add_responsive_class_and_lazyload($content){
     $existing_class = $img->getAttribute('class');
     $img->setAttribute('class', "img-fluid $existing_class");
 
-    $img->setAttribute('lazyload', "on");
+    $img->setAttribute('loading', "lazy");
   }
 
   $html = $document->saveHTML();
