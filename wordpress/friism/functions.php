@@ -91,25 +91,13 @@ add_action( 'wp_head', 'facebook_open_graph', 5 );
 
 function add_responsive_class_and_lazyload($content){
 
-  if ( ! $content ) {
-    return $content;
+  if ( $content ) {
+    $pattern ="/<img (.*?)class=\"(.*?)\"(.*?)>/i";
+    $replacement = '<img loading="lazy" $1class="$2 img-fluid"$3>';
+    $content = preg_replace($pattern, $replacement, $content);
   }
 
-  $content = mb_convert_encoding($content, 'HTML-ENTITIES', "UTF-8");
-  $document = new DOMDocument();
-  libxml_use_internal_errors(true);
-  $document->loadHTML(utf8_decode($content));
-
-  $imgs = $document->getElementsByTagName('img');
-  foreach ($imgs as $img) {
-    $existing_class = $img->getAttribute('class');
-    $img->setAttribute('class', "img-fluid $existing_class");
-
-    $img->setAttribute('loading', "lazy");
-  }
-
-  $html = $document->saveHTML();
-  return $html;
+  return $content;
 }
 
 add_filter('the_content','add_responsive_class_and_lazyload');
