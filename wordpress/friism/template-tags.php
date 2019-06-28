@@ -54,13 +54,13 @@ function wp_bootstrap_starter_entry_footer() {
 		/* translators: used between list items, there is a space after the comma */
 		$categories_list = get_the_category_list( esc_html__( ', ', 'wp-bootstrap-starter' ) );
 		if ( $categories_list && wp_bootstrap_starter_categorized_blog() ) {
-			printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'wp-bootstrap-starter' ) . '</span>', $categories_list ); // WPCS: XSS OK.
+			printf( '<span>' . esc_html__( 'Posted in %1$s', 'wp-bootstrap-starter' ) . '</span>', $categories_list ); // WPCS: XSS OK.
 		}
 
 		/* translators: used between list items, there is a space after the comma */
 		$tags_list = get_the_tag_list( '', esc_html__( ', ', 'wp-bootstrap-starter' ) );
 		if ( $tags_list ) {
-			printf( ' | <span class="tags-links">' . esc_html__( 'Tagged %1$s', 'wp-bootstrap-starter' ) . '</span>', $tags_list ); // WPCS: XSS OK.
+			printf( ' | <span>' . esc_html__( 'Tagged %1$s', 'wp-bootstrap-starter' ) . '</span>', $tags_list ); // WPCS: XSS OK.
 		}
 	}
 
@@ -71,7 +71,7 @@ function wp_bootstrap_starter_entry_footer() {
 			esc_html__( 'Edit %s', 'wp-bootstrap-starter' ),
 			the_title( '<span class="screen-reader-text">"', '"</span>', false )
 		),
-		' | <span class="edit-link">',
+		' | <span>',
 		'</span>'
 	);
 }

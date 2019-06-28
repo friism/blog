@@ -9,18 +9,18 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" class="blog-post">
-	<header class="entry-header">
-		<?php the_title( sprintf( '<h2 class="blog-post-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
+<article id="post-<?php the_ID(); ?>" class="my-4 col-lg-8 align-self-center">
+	<header class="border-bottom">
+		<?php the_title( sprintf( '<h2><a class="text-dark" href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
 
 		<?php if ( 'post' === get_post_type() ) : ?>
-		<p class="blog-post-meta">
+		<p class="text-secondary">
 			<?php wp_bootstrap_starter_posted_on(); ?>
 		</p>
 		<?php endif; ?>
 	</header>
 
-	<div class="entry-summary">
+	<div class="pt-3">
 		<?php the_excerpt(); ?>
 	</div>
 

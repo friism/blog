@@ -22,7 +22,7 @@
 
 <body>
 <header class="container">
-  <nav class="navbar navbar-expand-sm navbar-light bg-white pl-0">
+  <nav class="navbar navbar-light navbar-expand-sm bg-white pl-0">
     <a class="navbar-brand" href="<?php echo esc_url( home_url( '/' )); ?>">
       <?php esc_url(bloginfo('name')); ?>
     </a>
@@ -35,6 +35,7 @@
   </nav>
 </header>
 
-<hr>
+<hr class="bg-dark">
 
 <main class="container">
+<div class="row justify-content-center">

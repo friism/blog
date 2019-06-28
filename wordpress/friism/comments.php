@@ -18,13 +18,13 @@ if ( post_password_required() ) {
 }
 ?>
 
-<div id="comments" class="comments-area">
+<div id="comments" class="col-lg-8 align-self-center">
 
     <?php
     // You can start editing here -- including this comment!
     if ( have_comments() ) : ?>
 
-        <h2 class="comments-title">
+        <h3>
             <?php
             $comments_number = get_comments_number();
             if ( '1' === $comments_number ) {
@@ -45,7 +45,7 @@ if ( post_password_required() ) {
                 );
             }
             ?>
-        </h2><!-- .comments-title -->
+        </h2>
 
 
         <?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through? ?>
@@ -60,11 +60,11 @@ if ( post_password_required() ) {
             </nav><!-- #comment-nav-above -->
         <?php endif; // Check for comment navigation. ?>
 
-        <ul class="comment-list">
+        <ul class="list-unstyled">
             <?php
             wp_list_comments( array( 'callback' => 'wp_bootstrap_starter_comment', 'avatar_size' => 50 ));
             ?>
-        </ul><!-- .comment-list -->
+        </ul>
 
         <?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through? ?>
             <nav id="comment-nav-below" class="navigation comment-navigation" role="navigation">
@@ -89,7 +89,14 @@ if ( post_password_required() ) {
         <?php
     endif; ?>
 
+
     <?php comment_form( $args = array(
+        'fields' => array(
+            'author'    =>  '<div class="form-group row"><div class="col"><input type="text" class="form-control" id="author" name="author" placeholder="Name" value="' . esc_attr( $commenter['comment_author'] ) . '"' . $aria_req . ( $req ? 'required' : '' ) . ' /></div>',
+            'email'     =>  '<div class="col"><input type="text" class="form-control" id="email" name="email" placeholder="Email" value="' . esc_attr( $commenter['comment_author_email'] ) . '" ' . $aria_req . ( $req ? 'required' : '' ) . ' /></div>',
+            'url'       =>  '<div class="col"><input type="text" class="form-control" id="url" name="url" placeholder="Website" value="' . esc_attr( $commenter['comment_author_url'] ) . '" ' . $aria_req . ( $req ? 'required' : '' ) . ' /></div></div>',
+            'cookies'   =>  '<div class="form-group"><div class="form-check"><input type="checkbox" class="form-check-input" id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" value="yes" /><label for="wp-comment-cookies-consent" class="form-check-label">' . __( 'Save my name, email, and website in this browser for the next time I comment.' ) . '</label></div></div>',
+        ),
         'id_form'           => 'commentform',  // that's the wordpress default value! delete it or edit it ;)
         'id_submit'         => 'commentsubmit',
         'title_reply'       => __( 'Leave a Reply', 'wp-bootstrap-starter' ),  // that's the wordpress default value! delete it or edit it ;)
@@ -97,7 +104,10 @@ if ( post_password_required() ) {
         'cancel_reply_link' => __( 'Cancel Reply', 'wp-bootstrap-starter' ),  // that's the wordpress default value! delete it or edit it ;)
         'label_submit'      => __( 'Post Comment', 'wp-bootstrap-starter' ),  // that's the wordpress default value! delete it or edit it ;)
 
-        'comment_field' =>  '<p><textarea placeholder="Start typing..." id="comment" class="form-control" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>',
+        'class_submit'      => 'btn btn-secondary',
+        'class_form'        => NULL,
+
+        'comment_field'     =>  '<p><textarea placeholder="Start typing..." id="comment" class="form-control" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>',
 
         'comment_notes_after' => '<p class="form-allowed-tags">' .
             __( 'You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes:', 'wp-bootstrap-starter' ) .
