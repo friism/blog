@@ -101,4 +101,11 @@ function add_responsive_class_and_lazyload($content){
 
 add_filter('the_content','add_responsive_class_and_lazyload');
 
+function lazy_embed_oembed_html($content){
+  $content = str_replace('<iframe ','<iframe loading="lazy" ', $content);
+  return $content;
+}
+
+add_filter('embed_oembed_html', 'lazy_embed_oembed_html');
+
 ?>
