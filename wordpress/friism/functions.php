@@ -19,7 +19,6 @@ function wpb_add_googleanalytics() { ?>
 <?php }
 
 function theme_styles() {
-
   wp_enqueue_style( 'bootstrap_css', 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' );
 }
 add_action( 'wp_enqueue_scripts', 'theme_styles');
@@ -89,13 +88,11 @@ function facebook_open_graph() {
 add_action( 'wp_head', 'facebook_open_graph', 5 );
 
 function add_responsive_class_and_lazyload($content){
-
   if ( $content ) {
     $pattern ="/<img (.*?)class=\"(.*?)\"(.*?)>/i";
     $replacement = '<img loading="lazy" $1class="$2 img-fluid"$3>';
     $content = preg_replace($pattern, $replacement, $content);
   }
-
   return $content;
 }
 
