@@ -20,7 +20,7 @@ get_header(); ?>
 	}
 ?>
 
-<nav class="row mb-5">
+<nav class="col-lg-8 py-3 border-top">
 	<?php next_posts_link('Older') ?>
 	<?php previous_posts_link('Newer') ?>
 </nav>
