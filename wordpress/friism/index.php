@@ -20,9 +20,11 @@ get_header(); ?>
 	}
 ?>
 
-<nav class="col-lg-8 py-3 border-top">
-	<?php next_posts_link('Older') ?>
-	<?php previous_posts_link('Newer') ?>
+<nav class="col-lg-8">
+	<div class="border-top py-3">
+		<?php next_posts_link('Older') ?>
+		<?php previous_posts_link('Newer') ?>
+	</div>
 </nav>
 
 <?php
