@@ -18,14 +18,7 @@ get_header(); ?>
 			get_template_part( 'template-parts/content', get_post_format() );
 		}
 	}
-?>
 
-<nav class="col-lg-8">
-	<div class="border-top py-3">
-		<?php next_posts_link('Older') ?>
-		<?php previous_posts_link('Newer') ?>
-	</div>
-</nav>
+get_template_part( 'template-parts/content', 'list-nav' );
 
-<?php
 get_footer();

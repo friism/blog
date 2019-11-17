@@ -24,15 +24,9 @@ get_header(); ?>
 		get_template_part( 'template-parts/content', 'search' );
 
 	endwhile;
-	?>
 
-	<nav class="col-lg-8">
-		<div class="border-top py-3">
-			<?php next_posts_link('Older') ?>
-			<?php previous_posts_link('Newer') ?>
-		</div>
-	</nav>
-	<?php
+	get_template_part( 'template-parts/content', 'none' );
+
 else :
 
 	get_template_part( 'template-parts/content', 'none' );
