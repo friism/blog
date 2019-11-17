@@ -8,8 +8,7 @@
 
 get_header(); ?>
 
-<?php
-if ( have_posts() ) : ?>
+<?php if ( have_posts() ) : ?>
 
 	<h1><?php printf( esc_html__( 'Search Results for: %s', 'wp-bootstrap-starter' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
 
@@ -25,9 +24,15 @@ if ( have_posts() ) : ?>
 		get_template_part( 'template-parts/content', 'search' );
 
 	endwhile;
+	?>
 
-	the_posts_navigation();
-
+	<nav class="col-lg-8">
+		<div class="border-top py-3">
+			<?php next_posts_link('Older') ?>
+			<?php previous_posts_link('Newer') ?>
+		</div>
+	</nav>
+	<?php
 else :
 
 	get_template_part( 'template-parts/content', 'none' );
