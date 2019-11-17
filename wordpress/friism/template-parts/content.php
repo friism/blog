@@ -40,8 +40,6 @@
 	</div>
 
 	<footer class="entry-footer">
-		<?php 
-			wp_bootstrap_starter_entry_footer();
-		?>
+		<?php wp_bootstrap_starter_entry_footer(); ?>
 	</footer>
 </article>
