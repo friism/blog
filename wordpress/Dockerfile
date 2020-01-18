@@ -7,7 +7,7 @@ RUN set -ex; \
 		libpng-dev \
 	; \
 	\
-	docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr; \
+	docker-php-ext-configure gd --with-jpeg; \
 	docker-php-ext-install gd mysqli opcache; \
 	\
 	runDeps="$( \
