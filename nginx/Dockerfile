@@ -1,4 +1,4 @@
-FROM pagespeed/nginx-pagespeed as base
+FROM nginx:alpine as base
 
 RUN rm /etc/nginx/conf.d/default.conf
 COPY nginx.conf /etc/nginx/nginx.conf
