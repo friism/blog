@@ -19,7 +19,7 @@ services:
       - blog-uploads:/var/www/html/wp-content/uploads
     depends_on:
       - db
-    restart: on-failure
+    restart: unless-stopped
   nginx:
     build:
       context: nginx
@@ -34,7 +34,7 @@ services:
       - blog-uploads:/var/www/html/wp-content/uploads:ro
       - letsencrypt-certs:/etc/letsencrypt:ro
       - letsencrypt-challenge:/data/letsencrypt:ro
-    restart: on-failure
+    restart: unless-stopped
   db:
     image: mariadb:10.4
     environment:
@@ -44,7 +44,7 @@ services:
       - MYSQL_DATABASE=db
     volumes:
       - blog-db-data:/var/lib/mysql
-    restart: on-failure
+    restart: unless-stopped
 
 volumes:
   blog-www-html:
