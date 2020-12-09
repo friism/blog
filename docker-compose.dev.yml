@@ -32,7 +32,7 @@ services:
       - ./wordpress/friism:/var/www/html/wp-content/themes/friism
     restart: on-failure
   db:
-    image: mariadb:10.4
+    image: mariadb:10.5
     environment:
       - MYSQL_RANDOM_ROOT_PASSWORD=yes
       - MYSQL_USER=wordpress
