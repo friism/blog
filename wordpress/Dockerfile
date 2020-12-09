@@ -1,4 +1,4 @@
-FROM php:fpm-alpine as base
+FROM php:7.4-fpm-alpine as base
 
 RUN set -ex; \
 	\
