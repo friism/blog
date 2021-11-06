@@ -1,4 +1,4 @@
-FROM php:7.4-fpm-alpine as base
+FROM php:fpm-alpine as base
 
 RUN set -ex; \
 	\
@@ -34,7 +34,7 @@ RUN { \
 RUN curl -o /usr/local/bin/wp -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && \
 	chmod +x /usr/local/bin/wp
 
-ENV WORDPRESS_VERSION 5.6
+ENV WORDPRESS_VERSION 5.8.1
 
 RUN set -ex; \
 	curl -o wordpress.tar.gz -fSL "https://wordpress.org/wordpress-${WORDPRESS_VERSION}.tar.gz"; \
