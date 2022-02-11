@@ -92,9 +92,9 @@ if ( post_password_required() ) {
 
     <?php comment_form( $args = array(
         'fields' => array(
-            'author'    =>  '<div class="form-group row"><div class="col"><input type="text" class="form-control" id="author" name="author" placeholder="Name" value="' . esc_attr( $commenter['comment_author'] ) . '"' . $aria_req . ( $req ? 'required' : '' ) . ' /></div>',
-            'email'     =>  '<div class="col"><input type="text" class="form-control" id="email" name="email" placeholder="Email" value="' . esc_attr( $commenter['comment_author_email'] ) . '" ' . $aria_req . ( $req ? 'required' : '' ) . ' /></div>',
-            'url'       =>  '<div class="col"><input type="text" class="form-control" id="url" name="url" placeholder="Website" value="' . esc_attr( $commenter['comment_author_url'] ) . '" ' . $aria_req . ( $req ? 'required' : '' ) . ' /></div></div>',
+            'author'    =>  '<div class="form-group row"><div class="col"><input type="text" class="form-control" id="author" name="author" placeholder="Name" value="' . esc_attr( $commenter['comment_author'] ) . '"' . ( $req ? 'required' : '' ) . ' /></div>',
+            'email'     =>  '<div class="col"><input type="text" class="form-control" id="email" name="email" placeholder="Email" value="' . esc_attr( $commenter['comment_author_email'] ) . '" ' . ( $req ? 'required' : '' ) . ' /></div>',
+            'url'       =>  '<div class="col"><input type="text" class="form-control" id="url" name="url" placeholder="Website" value="' . esc_attr( $commenter['comment_author_url'] ) . '" ' . ( $req ? 'required' : '' ) . ' /></div></div>',
             'cookies'   =>  '<div class="form-group"><div class="form-check"><input type="checkbox" class="form-check-input" id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" value="yes" /><label for="wp-comment-cookies-consent" class="form-check-label">' . __( 'Save my name, email, and website in this browser for the next time I comment.' ) . '</label></div></div>',
         ),
         'id_form'           => 'commentform',  // that's the wordpress default value! delete it or edit it ;)
@@ -107,7 +107,7 @@ if ( post_password_required() ) {
         'class_submit'      => 'btn btn-secondary',
         'class_form'        => NULL,
 
-        'comment_field'     =>  '<p><textarea placeholder="Start typing..." id="comment" class="form-control" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>',
+        'comment_field'     =>  '<p><textarea placeholder="Start typing..." id="comment" class="form-control" name="comment" cols="45" rows="8" required></textarea></p>',
 
         'comment_notes_after' => '<p class="form-allowed-tags">' .
             __( 'You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes:', 'wp-bootstrap-starter' ) .
