@@ -27,15 +27,14 @@ add_filter('language_attributes', 'add_opengraph_doctype');
 
 function facebook_open_graph() {
   global $post;
-  if($excerpt = $post->post_excerpt) {
-    $excerpt = strip_tags($post->post_excerpt);
-    $excerpt = str_replace("", "'", $excerpt);
+  if($excerpt = get_the_excerpt()) {
+    $excerpt = wp_strip_all_tags($excerpt, true);
   }
   else {
     $excerpt = get_bloginfo('description');
   }
   if (strlen($excerpt) !== 0){
-    echo '<meta property="og:description" content="' . htmlspecialchars($excerpt) . '"/>';
+    echo '<meta property="og:description" content="' . esc_html($excerpt) . '"/>';
   }
 
   if ( is_singular()) {
