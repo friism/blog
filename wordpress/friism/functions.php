@@ -7,7 +7,6 @@ add_theme_support( 'responsive-embeds' );
 
 function theme_styles() {
   wp_enqueue_style( 'bootstrap_css', get_stylesheet_directory_uri() . '/bootstrap.min.css' );
-  // wp_enqueue_style( 'bootstrap-reboot_css', get_stylesheet_directory_uri() . '/bootstrap-reboot.min.css' );
 }
 
 add_action( 'wp_enqueue_scripts', 'theme_styles');
