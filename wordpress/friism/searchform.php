@@ -1,7 +1,7 @@
-<form role="search" method="get" class="form-inline ml-auto"
+<form role="search" method="get" class="d-flex"
     action="<?php echo esc_url( home_url( '/' ) ); ?>">
-    <input type="search" class="form-control my-2 mr-sm-2"
-        placeholder="search" aria-label="Search" value="<?php echo esc_attr( get_search_query() ); ?>"
+    <input type="search" class="form-control me-2"
+        placeholder="Search" aria-label="Search" value="<?php echo esc_attr( get_search_query() ); ?>"
         name="s">
-    <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+    <button class="btn btn-outline-dark" type="submit">Search</button>
 </form>

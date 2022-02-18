@@ -22,14 +22,11 @@
 
 <body>
 <header class="container">
-  <nav class="navbar navbar-light navbar-expand-sm bg-white pl-0">
-    <a class="navbar-brand" href="<?php echo esc_url( home_url( '/' )); ?>">
-      <?php esc_url(bloginfo('name')); ?>
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <nav class="navbar navbar-light bg-white pl-0">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="<?php echo esc_url( home_url( '/' )); ?>">
+        <?php esc_url(bloginfo('name')); ?>
+      </a>
       <?php get_search_form() ?>
     </div>
   </nav>
