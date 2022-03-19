@@ -75,8 +75,9 @@ function add_responsive_class_and_lazyload($content){
     $replacement = '<figure $1class="$2 figure"$3>';
     $content = preg_replace($figPattern, $replacement, $content);
 
-    $captionPattern ="/<figcaption (.*?)class=\"(.*?)\"(.*?)>/i";
-    $replacement = '<figcaption $1class="$2 text-center fst-italic"$3>';
+    // TODO: this is not very robust if WP makes the caption tag more complicated
+    $captionPattern ="/<figcaption>/i";
+    $replacement = '<figcaption class="text-center fst-italic">';
     $content = preg_replace($captionPattern, $replacement, $content);
   }
   return $content;
