@@ -67,9 +67,17 @@ add_action( 'wp_head', 'facebook_open_graph', 5 );
 
 function add_responsive_class_and_lazyload($content){
   if ( $content ) {
-    $pattern ="/<img (.*?)class=\"(.*?)\"(.*?)>/i";
-    $replacement = '<img loading="lazy" $1class="$2 img-fluid"$3>';
-    $content = preg_replace($pattern, $replacement, $content);
+    $imgPattern ="/<img (.*?)class=\"(.*?)\"(.*?)>/i";
+    $replacement = '<img loading="lazy" $1class="$2 img-fluid mx-auto"$3>';
+    $content = preg_replace($imgPattern, $replacement, $content);
+
+    $figPattern ="/<figure (.*?)class=\"(.*?)\"(.*?)>/i";
+    $replacement = '<figure $1class="$2 figure"$3>';
+    $content = preg_replace($figPattern, $replacement, $content);
+
+    $captionPattern ="/<figcaption (.*?)class=\"(.*?)\"(.*?)>/i";
+    $replacement = '<figcaption $1class="$2 text-center fst-italic"$3>';
+    $content = preg_replace($captionPattern, $replacement, $content);
   }
   return $content;
 }
