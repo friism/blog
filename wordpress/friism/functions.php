@@ -68,7 +68,7 @@ add_action( 'wp_head', 'facebook_open_graph', 5 );
 function add_responsive_class_and_lazyload($content){
   if ( $content ) {
     $imgPattern ="/<img (.*?)class=\"(.*?)\"(.*?)>/i";
-    $replacement = '<img loading="lazy" $1class="$2 img-fluid mx-auto"$3>';
+    $replacement = '<img loading="lazy" $1class="$2 img-fluid"$3>';
     $content = preg_replace($imgPattern, $replacement, $content);
 
     $figPattern ="/<figure (.*?)class=\"(.*?)\"(.*?)>/i";
