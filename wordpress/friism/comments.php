@@ -19,7 +19,6 @@ if ( post_password_required() ) {
 ?>
 
 <div id="comments" class="col-lg-8 align-self-center">
-
     <?php
     // You can start editing here -- including this comment!
     if ( have_comments() ) : ?>
@@ -47,11 +46,9 @@ if ( post_password_required() ) {
             ?>
         </h3>
 
-        <!-- <div class="d-flex flex-column"> -->
-            <?php
-            wp_list_comments( array( 'callback' => 'wp_bootstrap_starter_comment', 'avatar_size' => 50, 'style' => 'div' ));
-            ?>
-        <!-- </div> -->
+        <?php
+            wp_list_comments( array( 'callback' => 'wp_bootstrap_starter_comment', 'avatar_size' => 30, 'style' => 'div' ));
+        ?>
         <?php 
     endif;
 
@@ -66,7 +63,7 @@ if ( post_password_required() ) {
 
     <?php comment_form( $args = array(
         'fields' => array(
-            'author'    =>  '<div class="form-group row"><div class="col"><input type="text" class="form-control" id="author" name="author" placeholder="Name" value="' . esc_attr( $commenter['comment_author'] ) . '"' . ( $req ? 'required' : '' ) . ' /></div>',
+            'author'    =>  '<div class="form-group row"><div class="col"><input type="text" class="form-control" id="author" name="author" placeholder="Name" value="' . esc_attr( $commenter['comment_author'] ) . '" ' . ( $req ? 'required' : '' ) . ' /></div>',
             'email'     =>  '<div class="col"><input type="text" class="form-control" id="email" name="email" placeholder="Email" value="' . esc_attr( $commenter['comment_author_email'] ) . '" ' . ( $req ? 'required' : '' ) . ' /></div>',
             'url'       =>  '<div class="col"><input type="text" class="form-control" id="url" name="url" placeholder="Website" value="' . esc_attr( $commenter['comment_author_url'] ) . '" ' . ( $req ? 'required' : '' ) . ' /></div></div>',
             'cookies'   =>  '<div class="form-group"><div class="form-check"><input type="checkbox" class="form-check-input" id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" value="yes" /><label for="wp-comment-cookies-consent" class="form-check-label">' . __( 'Save my name, email, and website in this browser for the next time I comment.' ) . '</label></div></div>',
