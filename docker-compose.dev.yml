@@ -30,7 +30,7 @@ services:
       - blog-www-html:/var/www/html:ro
       - ./wordpress/friism:/var/www/html/wp-content/themes/friism
   db:
-    image: mariadb:10.6
+    image: mariadb:10.10
     environment:
       - MYSQL_RANDOM_ROOT_PASSWORD=yes
       - MYSQL_USER=wordpress
