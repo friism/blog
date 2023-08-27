@@ -51,6 +51,7 @@ COPY wipe-posts.sh /admin/wipe-posts.sh
 RUN chmod u+x /admin/wipe-posts.sh
 
 COPY uploads.ini /usr/local/etc/php/conf.d/uploads.ini
+COPY zzz_blog.conf /usr/local/etc/php-fpm.d/zzz_blog.conf
 
 USER www-data
 RUN mkdir -p /var/www/html/wp-content/uploads

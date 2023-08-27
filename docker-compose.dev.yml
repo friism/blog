@@ -16,6 +16,7 @@ services:
     volumes:
       - blog-www-html:/var/www/html
       - ./wordpress/friism:/var/www/html/wp-content/themes/friism
+      - php-sock:/run/php-sock
     depends_on:
       - db
   nginx:
@@ -29,6 +30,7 @@ services:
     volumes:
       - blog-www-html:/var/www/html:ro
       - ./wordpress/friism:/var/www/html/wp-content/themes/friism
+      - php-sock:/run/php-sock
   db:
     image: mariadb:10.11.4
     environment:
@@ -44,3 +46,4 @@ volumes:
     external: true
   blog-db-data:
     external: true
+  php-sock:
