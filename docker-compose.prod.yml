@@ -17,6 +17,8 @@ services:
     volumes:
       - blog-www-html:/var/www/html
       - blog-uploads:/var/www/html/wp-content/uploads
+      - php-sock:/run/php-sock
+      - mariadb-sock:/run/mariadb-sock
     depends_on:
       - db
     restart: unless-stopped
@@ -34,16 +36,19 @@ services:
       - blog-uploads:/var/www/html/wp-content/uploads:ro
       - letsencrypt-certs:/etc/letsencrypt:ro
       - letsencrypt-challenge:/data/letsencrypt:ro
+      - php-sock:/run/php-sock
     restart: unless-stopped
   db:
-    image: mariadb:10.10
+    image: jbergstroem/mariadb-alpine
     environment:
       - MYSQL_RANDOM_ROOT_PASSWORD=yes
       - MYSQL_USER=wordpress
       - MYSQL_PASSWORD=${DB_PASS}
       - MYSQL_DATABASE=db
+      - MARIADB_ROOT_HOST=localhost
     volumes:
       - blog-db-data:/var/lib/mysql
+      - mariadb-sock:/run/mysqld
     restart: unless-stopped
 
 volumes:
@@ -56,4 +61,5 @@ volumes:
     external: true
   letsencrypt-challenge:
     external: true
-
+  php-sock:
+  mariadb-sock:

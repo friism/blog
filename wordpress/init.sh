@@ -1,6 +1,6 @@
 #! /bin/sh
 
-wp config create --skip-check --dbname=db --dbuser=wordpress --dbpass=$DB_PASS --dbhost=db --extra-php <<PHP
+wp config create --skip-check --dbname=db --dbuser=wordpress --dbpass=$DB_PASS --dbhost='localhost:/run/mariadb-sock/mysql.sock' --extra-php <<PHP
 define( 'WPCOM_API_KEY', '$WP_API_KEY' );
 PHP
 

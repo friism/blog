@@ -17,6 +17,7 @@ services:
       - blog-www-html:/var/www/html
       - ./wordpress/friism:/var/www/html/wp-content/themes/friism
       - php-sock:/run/php-sock
+      - mariadb-sock:/run/mariadb-sock
     depends_on:
       - db
   nginx:
@@ -32,18 +33,21 @@ services:
       - ./wordpress/friism:/var/www/html/wp-content/themes/friism
       - php-sock:/run/php-sock
   db:
-    image: mariadb:10.11.4
+    image: jbergstroem/mariadb-alpine
+    command: --skip-networking=TRUE
     environment:
       - MYSQL_RANDOM_ROOT_PASSWORD=yes
       - MYSQL_USER=wordpress
       - MYSQL_PASSWORD=db-pass
       - MYSQL_DATABASE=db
+      - MARIADB_ROOT_HOST=localhost
     volumes:
       - blog-db-data:/var/lib/mysql
-
+      - mariadb-sock:/run/mysqld
 volumes:
   blog-www-html:
     external: true
   blog-db-data:
     external: true
   php-sock:
+  mariadb-sock:
