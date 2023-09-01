@@ -2,7 +2,7 @@
 
 add_theme_support( 'post-thumbnails' );
 add_theme_support( 'title-tag' );
-add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' ) );
+add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption', 'style', 'script' ) );
 add_theme_support( 'responsive-embeds' );
 
 function theme_styles() {
