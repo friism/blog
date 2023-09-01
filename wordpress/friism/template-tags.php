@@ -127,9 +127,8 @@ if ( ! function_exists( 'wp_bootstrap_starter_comment' ) ) :
      * Used as a callback by wp_list_comments() for displaying the comments.
      */
     function wp_bootstrap_starter_comment( $comment, $args, $depth ) {
-        if ( 'pingback' == $comment->comment_type || 'trackback' == $comment->comment_type ) : ?>
-        <?php else : ?>
-            <div id="comment-<?php comment_ID(); ?>" <?php comment_class( 'm-2 border border-light rounded'); ?>>
+		?>
+			<div id="comment-<?php comment_ID(); ?>" <?php comment_class( 'm-2 border border-light rounded'); ?>>
 				<div class="p-2 bg-light">
 					<?php if ( 0 != $args['avatar_size'] ) echo get_avatar( $comment, $args['avatar_size'] ); ?>
 					<?php comment_author_link(); ?> on <a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>"><time datetime="<?php comment_time( 'c' ); ?>"><?php printf( _x( '%1$s at %2$s', '1: date, 2: time', 'wp-bootstrap-starter' ), get_comment_date(), get_comment_time()); ?></time></a>
@@ -154,7 +153,7 @@ if ( ! function_exists( 'wp_bootstrap_starter_comment' ) ) :
 						)
 					); ?>
 				</div>
+			<!-- WHAT - no end tag -->
 		<?php
-        endif;
     }
 endif;

@@ -20,31 +20,8 @@ if ( post_password_required() ) {
 
 <div id="comments" class="col-lg-8 align-self-center">
     <?php
-    // You can start editing here -- including this comment!
     if ( have_comments() ) : ?>
-
-        <h3>
-            <?php
-            $comments_number = get_comments_number();
-            if ( '1' === $comments_number ) {
-                /* translators: %s: post title */
-                printf( _x( 'One thought on &ldquo;%s&rdquo;', 'comments title', 'wp-bootstrap-starter' ), get_the_title() );
-            } else {
-                printf(
-                /* translators: 1: number of comments, 2: post title */
-                    _nx(
-                        '%1$s thought on &ldquo;%2$s&rdquo;',
-                        '%1$s thoughts on &ldquo;%2$s&rdquo;',
-                        $comments_number,
-                        'comments title',
-                        'wp-bootstrap-starter'
-                    ),
-                    number_format_i18n( $comments_number ),
-                    get_the_title()
-                );
-            }
-            ?>
-        </h3>
+        <h3>Comments</h3>
 
         <?php
             wp_list_comments( array( 'callback' => 'wp_bootstrap_starter_comment', 'type' => 'comment', 'avatar_size' => 30, 'style' => 'div' ));
@@ -52,8 +29,6 @@ if ( post_password_required() ) {
         <?php 
     endif;
 
-
-    // If comments are closed and there are comments, let's leave a little note, shall we?
     if ( ! comments_open() && get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) : ?>
 
         <p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'wp-bootstrap-starter' ); ?></p>
