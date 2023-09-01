@@ -47,7 +47,7 @@ if ( post_password_required() ) {
         </h3>
 
         <?php
-            wp_list_comments( array( 'callback' => 'wp_bootstrap_starter_comment', 'avatar_size' => 30, 'style' => 'div' ));
+            wp_list_comments( array( 'callback' => 'wp_bootstrap_starter_comment', 'type' => 'comment', 'avatar_size' => 30, 'style' => 'div' ));
         ?>
         <?php 
     endif;
