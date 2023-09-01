@@ -129,13 +129,13 @@ if ( ! function_exists( 'wp_bootstrap_starter_comment' ) ) :
     function wp_bootstrap_starter_comment( $comment, $args, $depth ) {
         if ( 'pingback' == $comment->comment_type || 'trackback' == $comment->comment_type ) : ?>
         <?php else : ?>
-            <div id="comment-<?php comment_ID(); ?>" <?php comment_class( 'card mt-4'); ?>>
-				<div class="card-header">
+            <div id="comment-<?php comment_ID(); ?>" <?php comment_class( 'm-2 border border-light rounded'); ?>>
+				<div class="p-2 bg-light">
 					<?php if ( 0 != $args['avatar_size'] ) echo get_avatar( $comment, $args['avatar_size'] ); ?>
 					<?php comment_author_link(); ?> on <a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>"><time datetime="<?php comment_time( 'c' ); ?>"><?php printf( _x( '%1$s at %2$s', '1: date, 2: time', 'wp-bootstrap-starter' ), get_comment_date(), get_comment_time()); ?></time></a>
 					<?php edit_comment_link('Edit'); ?>
 				</div>
-				<div class="card-body">
+				<div class="p-2">
 					<?php comment_text(); ?>
 					<?php if ( '0' == $comment->comment_approved ) : ?>
 						<p class="comment-awaiting-moderation">
@@ -143,11 +143,11 @@ if ( ! function_exists( 'wp_bootstrap_starter_comment' ) ) :
 						</p>
 					<?php endif; ?>
 				</div>
-				<div class="card-footer">
+				<div class="p-2 bg-light">
 					<?php comment_reply_link(
 						array_merge(
 							$args, array(
-								'add_below' => 'div-comment',
+								'add_below' => 'comment',
 								'depth' 	=> $depth,
 								'max_depth' => $args['max_depth']
 							)
