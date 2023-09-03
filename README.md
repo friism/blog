@@ -12,9 +12,9 @@ Three containers:
 
 FPM/Wordpress and nginx container shares a folder with all the Wordpress files. Any static files and Wordpress media files are served by nginx directly.
 
-nginx container forwards requests for `.php` files to the FPM/Wordpress container on TCP port 9000 using the FastCGI protocol.
+nginx container forwards requests for `.php` files to the FPM/Wordpress container on a UNIX socket using the FastCGI protocol.
 
-Wordpress uses MariaDB (over TCP) for persistense of posts. Media is persisted on the Docker volume that nginx and Wordpress shares.
+Wordpress uses MariaDB (over another socket) for persistense of posts. Media is persisted on the Docker volume that nginx and Wordpress shares.
 
 ## How to Use
 

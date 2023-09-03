@@ -91,5 +91,4 @@ function lazy_embed_oembed_html($content){
 }
 
 add_filter('embed_oembed_html', 'lazy_embed_oembed_html');
-
 ?>

@@ -35,7 +35,6 @@ if ( post_password_required() ) {
         <?php
     endif; ?>
 
-
     <?php comment_form( $args = array(
         'fields' => array(
             'author'    =>  '<div class="form-group row"><div class="col"><input type="text" class="form-control" id="author" name="author" placeholder="Name" value="' . esc_attr( $commenter['comment_author'] ) . '" ' . ( $req ? 'required' : '' ) . ' /></div>',
