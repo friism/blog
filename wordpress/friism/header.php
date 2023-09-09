@@ -12,7 +12,7 @@
 <html <?php language_attributes(); ?>>
 <head>
     <meta charset="<?php bloginfo( 'charset' ); ?>">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="profile" href="http://gmpg.org/xfn/11">
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
@@ -21,18 +21,16 @@
 </head>
 
 <body>
-<header class="container">
-  <nav class="navbar navbar-light bg-white pl-0">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="<?php echo esc_url( home_url( '/' )); ?>">
+<nav class="container-fluid">
+  <ul>
+    <li>
+      <a href="<?php echo esc_url( home_url( '/' )); ?>">
         <?php esc_url(bloginfo('name')); ?>
       </a>
-      <?php get_search_form() ?>
-    </div>
-  </nav>
-</header>
+  </li>
+</ul>
+</nav>
 
-<hr class="bg-dark">
+<hr>
 
 <main class="container">
-<div class="row justify-content-center">

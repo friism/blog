@@ -9,22 +9,22 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" class="my-4 col-lg-8 align-self-center">
-	<header class="border-bottom">
-		<?php the_title( sprintf( '<h2><a class="text-dark" href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
+<article id="post-<?php the_ID(); ?>">
+	<header>
+		<?php the_title( sprintf( '<h2><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
 
 		<?php if ( 'post' === get_post_type() ) : ?>
-		<p class="text-secondary">
+		<p>
 			<?php wp_bootstrap_starter_posted_on(); ?>
 		</p>
 		<?php endif; ?>
 	</header>
 
-	<div class="pt-3">
+	<div>
 		<?php the_excerpt(); ?>
 	</div>
 
-	<footer class="entry-footer">
+	<footer>
 		<?php wp_bootstrap_starter_entry_footer(); ?>
 	</footer>
 </article>

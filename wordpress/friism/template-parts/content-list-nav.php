@@ -1,6 +1,4 @@
-<nav class="col-lg-8">
-    <div class="border-top py-3">
-        <?php next_posts_link('Older') ?>
-        <?php previous_posts_link('Newer') ?>
-    </div>
-</nav>
+<p>
+    <?php next_posts_link('Older Posts') ?>
+    <?php previous_posts_link('Newer Posts') ?>
+</p>

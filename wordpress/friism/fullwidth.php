@@ -5,7 +5,7 @@
 
 get_header(); ?>
 
-	<main id="main" class="content-area col-sm-12" role="main">
+	<main id="main" role="main">
 
 		<?php
 		while ( have_posts() ) : the_post();

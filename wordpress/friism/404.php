@@ -6,7 +6,7 @@
  */
 
 get_header(); ?>
-<main id="main" class="content-area col-sm-12 col-lg-8" role="main">
+<main id="main" role="main">
 	<section class="error-404 not-found">
 		<header class="page-header">
 			<h1 class="page-title">Oops! That page can&rsquo;t be found.</h1>

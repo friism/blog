@@ -8,23 +8,23 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" class="my-4 col-lg-8 align-self-center" >
-	<header class="border-bottom">
+<article id="post-<?php the_ID(); ?>">
+	<hgroup>
 		<?php
 		if ( is_single() ) :
 			the_title( '<h1>', '</h1>' );
 		else :
-			the_title( '<h2><a class="text-dark" href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+			the_title( '<h2><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 		endif;
 
 		if ( 'post' === get_post_type() ) : ?>
-		<p class="text-secondary">
+		<p>
 			<?php wp_bootstrap_starter_posted_on(); ?>
 		</p>
 		<?php endif; ?>
-	</header>
+	</hgroup>
 
-	<div class="pt-3">
+	<div>
 		<?php
         if ( is_single() ) :
 			the_content();
@@ -39,7 +39,7 @@
 		?>
 	</div>
 
-	<footer class="entry-footer">
+	<footer>
 		<?php wp_bootstrap_starter_entry_footer(); ?>
 	</footer>
 </article>
