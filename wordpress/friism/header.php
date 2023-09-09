@@ -27,8 +27,13 @@
       <a href="<?php echo esc_url( home_url( '/' )); ?>">
         <?php esc_url(bloginfo('name')); ?>
       </a>
-  </li>
-</ul>
+    </li>
+  </ul>
+  <ul>
+    <li>
+      <a href="/michael-friis">About</a>
+    </li>
+  </ul>
 </nav>
 
 <hr>
