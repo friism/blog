@@ -6,7 +6,7 @@ add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form'
 add_theme_support( 'responsive-embeds' );
 
 function theme_styles() {
-  wp_enqueue_style( 'pico_css', get_stylesheet_directory_uri() . '/pico.min.css' );
+  wp_enqueue_style( 'pico_css', get_stylesheet_directory_uri() . '/pico.classless.min.css' );
 }
 
 add_action( 'wp_enqueue_scripts', 'theme_styles');
