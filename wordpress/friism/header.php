@@ -21,7 +21,7 @@
 </head>
 
 <body>
-<nav class="container-fluid">
+<header>
   <ul>
     <li>
       <a href="<?php echo esc_url( home_url( '/' )); ?>">
@@ -34,8 +34,8 @@
       <a href="/michael-friis">About</a>
     </li>
   </ul>
-</nav>
+</header>
 
 <hr>
 
-<main class="container">
+<main>
