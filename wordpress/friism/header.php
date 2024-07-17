@@ -21,21 +21,22 @@
 </head>
 
 <body>
-<header>
-  <ul>
-    <li>
-      <a href="<?php echo esc_url( home_url( '/' )); ?>">
-        <?php esc_url(bloginfo('name')); ?>
-      </a>
-    </li>
-  </ul>
-  <ul>
-    <li>
-      <a href="/michael-friis">About</a>
-    </li>
-  </ul>
-</header>
-
+  <header>
+    <nav>
+      <ul>
+        <li>
+          <a href="<?php echo esc_url( home_url( '/' )); ?>">
+            <?php esc_url(bloginfo('name')); ?>
+          </a>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <a href="/michael-friis">About</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
 <hr>
 
 <main>
