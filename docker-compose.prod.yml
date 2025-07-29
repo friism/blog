@@ -39,7 +39,7 @@ services:
       - php-sock:/run/php-sock
     restart: unless-stopped
   db:
-    image: jbergstroem/mariadb-alpine
+    image: mariadb
     environment:
       - MYSQL_RANDOM_ROOT_PASSWORD=yes
       - MYSQL_USER=wordpress
